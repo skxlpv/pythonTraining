@@ -1,11 +1,14 @@
-from frames import main_frame
+from API_requests import fetch_one
+from inputs import base, output, price, price_symbol, currency_amount
 from root import *
+from utils import symbols
 
 
-def create_buttons():
-    button_start = Button(main_frame, text='START', width=button_width, height=button_height)
-    button_start1 = Button(main_frame, text='START', width=button_width, height=button_height)
+def submit():
+    currency_price = fetch_one(base.get(), output.get(), currency_amount.get())
+    price.set(currency_price)
+    symbol = str(symbols[output.get()])
+    price_symbol.set(symbol)
 
-    button_start2 = Button(main_frame, text='START', width=button_width, height=button_height)
 
-    button_start3 = Button(main_frame, text='START', width=button_width, height=button_height)
+fetch_button = Button(main_window, text='Fetch Price', command=submit, width=12, height=2)
