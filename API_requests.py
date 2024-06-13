@@ -16,7 +16,7 @@ def fetch_one(base_currency: str, output_currency: str, amount: int):
             error.set("")
             return price
         elif response.status_code == 401:
-            error.set("Please provide a correct currency sign!")
+            error.set("Please, provide a correct currency sign!")
 
     except requests.exceptions.JSONDecodeError as e:
-        error.set("Please provide a correct currency sign!")
+        error.set("Please, provide a correct currency sign!")
