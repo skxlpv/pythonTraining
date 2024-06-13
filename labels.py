@@ -1,5 +1,5 @@
 from frames import input_frame, price_frame
-from inputs import base_currency_input, output_currency_input, price, amount_input, output, price_symbol
+from inputs import base_currency_input, output_currency_input, price, amount_input, output, price_symbol, error
 from buttons import fetch_button
 from root import *
 
@@ -24,6 +24,10 @@ def create_labels():
                           height=3, justify='center',
                           bg='black', fg='white', font="Halvatica 12")
 
+    error_label = Label(main_window, textvariable=error,
+                        height=label_height, bg='black', fg='white',
+                        font="Halvatica 10")
+
     main_label.pack()
     description_label.pack()
 
@@ -41,3 +45,5 @@ def create_labels():
     fetch_button.pack(pady=10)
 
     price_frame.pack(padx=2)
+
+    error_label.pack()
